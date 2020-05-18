@@ -895,6 +895,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "磷平衡计算器";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnl2.Panel1.ResumeLayout(false);
             this.pnl2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnl2)).EndInit();
