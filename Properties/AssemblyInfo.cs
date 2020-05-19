@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("PhosphorusBalanceCalculator")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("磷平衡计算器")]
+[assembly: AssemblyDescription("磷平衡计算器")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PhosphorusBalanceCalculator")]
+[assembly: AssemblyCompany("Iguana")]
+[assembly: AssemblyProduct("磷平衡计算器")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
