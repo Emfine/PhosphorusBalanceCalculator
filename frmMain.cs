@@ -48,7 +48,14 @@ namespace PhosphorusBalanceCalculator
         {
             calc(txtD, () =>
             {
-                throw new NotImplementedException();
+                decimal diet = MathHelper.CalcDiet(C);
+                decimal drug = MathHelper.CalcDrug(I, J, K, L, M, N, O, P);
+                decimal beta = MathHelper.CalcBeta(H);
+                decimal dialysis = diet * 0.7m - drug - Pi - 68m * 7m;
+                decimal divider = 80.3m * F - 0.024m * A + 0.07m * B - beta * H - 8.14m - G * (E - 4m) * 0.06m * Q;
+                if (0m == divider) throw new Exception($"除数不能为0{Environment.NewLine}请调整{Environment.NewLine}【{txtA.Tag}】{Environment.NewLine}【{txtB.Tag}】{Environment.NewLine}【{txtE.Tag}】{Environment.NewLine}【{txtF.Tag}】{Environment.NewLine}【{txtG.Tag}】{Environment.NewLine}【{txtH.Tag}】{Environment.NewLine}【{txtQ.Tag}】");
+                decimal d = dialysis / 31m / divider;
+                return d;
             });
         }
 
@@ -57,12 +64,13 @@ namespace PhosphorusBalanceCalculator
             calc(txtE, () =>
             {
                 decimal diet = MathHelper.CalcDiet(C);
-                decimal drug = MathHelper.CalcDrug(I, J, L, K, M, N, O, P);
+                decimal drug = MathHelper.CalcDrug(I, J, K, L, M, N, O, P);
                 decimal beta = MathHelper.CalcBeta(H);
                 decimal dialysis = diet * 0.7m - drug - Pi - 68m * 7m;
+                if (0m == D) throw new Exception($"【{txtD.Tag}】不能为0");
                 if (0m == G) throw new Exception($"【{txtG.Tag}】不能为0");
                 if (0m == Q) throw new Exception($"【{txtQ.Tag}】不能为0");
-                decimal e = (dialysis / 3m / 31m - 80.3m * F + 0.024m * A - 0.07m * B - beta * H + 8.14m) / G / 0.06m / Q + 4m;
+                decimal e = (dialysis / D / 31m - 80.3m * F + 0.024m * A - 0.07m * B - beta * H + 8.14m) / G / 0.06m / Q + 4m;
                 return e;
             });
         }
@@ -72,8 +80,8 @@ namespace PhosphorusBalanceCalculator
             calc(txtPi, () =>
             {
                 decimal diet = MathHelper.CalcDiet(C);
-                decimal dialysis = MathHelper.CalcDialysis(F, A, B, H, G, E, Q);
-                decimal drug = MathHelper.CalcDrug(I, J, L, K, M, N, O, P);
+                decimal dialysis = MathHelper.CalcDialysis(A, B, D, E, F, G, H, Q);
+                decimal drug = MathHelper.CalcDrug(I, J, K, L, M, N, O, P);
                 decimal pi = diet * 0.7m - dialysis - drug - 68m * 7m;
                 return pi;
             });
@@ -83,7 +91,7 @@ namespace PhosphorusBalanceCalculator
         {
             calc(txtC, () =>
             {
-                decimal dialysis = MathHelper.CalcDialysis(F, A, B, H, G, E, Q);
+                decimal dialysis = MathHelper.CalcDialysis(A, B, D, E, F, G, H, Q);
                 decimal drug = MathHelper.CalcDrug(I, J, K, L, M, N, O, P);
                 decimal c = (Pi + dialysis + drug + 68m * 7m) / 0.7m / 7m;
                 return c;
@@ -95,7 +103,7 @@ namespace PhosphorusBalanceCalculator
             calc(txtJ, () =>
             {
                 decimal diet = MathHelper.CalcDiet(C);
-                decimal dialysis = MathHelper.CalcDialysis(F, A, B, H, G, E, Q);
+                decimal dialysis = MathHelper.CalcDialysis(A, B, D, E, F, G, H, Q);
                 decimal drug = diet * 0.7m - dialysis - Pi - 68m * 7m;
                 decimal csg = MathHelper.CalcCSG(K, L);
                 decimal tsswlm = MathHelper.CalcTSSWLM(M, N);
@@ -111,7 +119,7 @@ namespace PhosphorusBalanceCalculator
             calc(txtL, () =>
             {
                 decimal diet = MathHelper.CalcDiet(C);
-                decimal dialysis = MathHelper.CalcDialysis(F, A, B, H, G, E, Q);
+                decimal dialysis = MathHelper.CalcDialysis(A, B, D, E, F, G, H, Q);
                 decimal drug = diet * 0.7m - dialysis - Pi - 68m * 7m;
                 decimal tsg = MathHelper.CalcTSG(I, J);
                 decimal tsswlm = MathHelper.CalcTSSWLM(M, N);
@@ -127,7 +135,7 @@ namespace PhosphorusBalanceCalculator
             calc(txtN, () =>
             {
                 decimal diet = MathHelper.CalcDiet(C);
-                decimal dialysis = MathHelper.CalcDialysis(F, A, B, H, G, E, Q);
+                decimal dialysis = MathHelper.CalcDialysis(A, B, D, E, F, G, H, Q);
                 decimal drug = diet * 0.7m - dialysis - Pi - 68m * 7m;
                 decimal tsg = MathHelper.CalcTSG(I, J);
                 decimal csg = MathHelper.CalcCSG(K, L);
@@ -143,7 +151,7 @@ namespace PhosphorusBalanceCalculator
             calc(txtP, () =>
             {
                 decimal diet = MathHelper.CalcDiet(C);
-                decimal dialysis = MathHelper.CalcDialysis(F, A, B, H, G, E, Q);
+                decimal dialysis = MathHelper.CalcDialysis(A, B, D, E, F, G, H, Q);
                 decimal drug = diet * 0.7m - dialysis - Pi - 68m * 7m;
                 decimal tsg = MathHelper.CalcTSG(I, J);
                 decimal csg = MathHelper.CalcCSG(K, L);
@@ -200,7 +208,7 @@ namespace PhosphorusBalanceCalculator
                     if (child is TextBox)
                     {
                         var txt = child as TextBox;
-                        if (txt != except && txt != txtD)
+                        if (txt != except)
                         {
                             var result = txt.TryPraseDecimal();
                             if (0 == result.IsSucceeded)

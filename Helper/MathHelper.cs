@@ -13,10 +13,10 @@ namespace PhosphorusBalanceCalculator.Helper
             return diet;
         }
 
-        public static decimal CalcDialysis(decimal f, decimal a, decimal b, decimal h, decimal g, decimal e, decimal q)
+        public static decimal CalcDialysis(decimal a, decimal b, decimal d, decimal e, decimal f, decimal g, decimal h, decimal q)
         {
             decimal beta = CalcBeta(h);
-            decimal dialysis = (80.3m * f - 0.024m * a + 0.07m * b + beta * h - 8.14m + g * (e - 4m) * 0.06m * q) * 3m * 31m;
+            decimal dialysis = (80.3m * f - 0.024m * a + 0.07m * b + beta * h - 8.14m + g * (e - 4m) * 0.06m * q) * d * 31m;
             return dialysis;
         }
 
