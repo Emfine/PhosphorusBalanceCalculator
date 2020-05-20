@@ -747,11 +747,11 @@
             // 
             this.lblC.AutoSize = true;
             this.lblC.Font = new System.Drawing.Font("宋体", 9.75F);
-            this.lblC.Location = new System.Drawing.Point(32, 59);
+            this.lblC.Location = new System.Drawing.Point(63, 59);
             this.lblC.Name = "lblC";
-            this.lblC.Size = new System.Drawing.Size(98, 13);
+            this.lblC.Size = new System.Drawing.Size(72, 13);
             this.lblC.TabIndex = 0;
-            this.lblC.Text = "饮食每日磷摄入";
+            this.lblC.Text = "饮食磷摄入";
             // 
             // lblB
             // 
@@ -769,9 +769,9 @@
             this.lblCUnit.Font = new System.Drawing.Font("宋体", 9.75F);
             this.lblCUnit.Location = new System.Drawing.Point(230, 59);
             this.lblCUnit.Name = "lblCUnit";
-            this.lblCUnit.Size = new System.Drawing.Size(21, 13);
+            this.lblCUnit.Size = new System.Drawing.Size(35, 13);
             this.lblCUnit.TabIndex = 0;
-            this.lblCUnit.Text = "mg";
+            this.lblCUnit.Text = "mg/d";
             // 
             // lblBUnit
             // 
