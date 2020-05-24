@@ -840,7 +840,7 @@
             // 
             this.btnCalcTXSJ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(179)))), ((int)(((byte)(140)))));
             this.btnCalcTXSJ.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalcTXSJ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCalcTXSJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalcTXSJ.Font = new System.Drawing.Font("宋体", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCalcTXSJ.ForeColor = System.Drawing.Color.White;
             this.btnCalcTXSJ.Location = new System.Drawing.Point(3, 32);
